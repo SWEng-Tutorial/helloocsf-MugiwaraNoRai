@@ -8,13 +8,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-
+//import il.cshaifasweng.OCSFMediatorExample.entities.Student;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
 /**
  * JavaFX App
  */
@@ -28,7 +27,9 @@ public class SimpleChatClient extends Application {
     	EventBus.getDefault().register(this);
     	client = SimpleClient.getClient();
     	client.openConnection();
+        System.out.println("1");
         scene = new Scene(loadFXML("primary"), 640, 480);
+        System.out.println("2");
         stage.setScene(scene);
         stage.show();
     }

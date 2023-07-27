@@ -1,9 +1,11 @@
 package il.cshaifasweng.OCSFMediatorExample.server;
 
 import il.cshaifasweng.OCSFMediatorExample.entities.Message;
+import il.cshaifasweng.OCSFMediatorExample.entities.Student;
 import il.cshaifasweng.OCSFMediatorExample.server.ocsf.AbstractServer;
 import il.cshaifasweng.OCSFMediatorExample.server.ocsf.ConnectionToClient;
 import il.cshaifasweng.OCSFMediatorExample.server.ocsf.SubscribedClient;
+import org.w3c.dom.events.Event;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,26 +39,47 @@ public class SimpleServer extends AbstractServer {
 			}
 			//we got a request to add a new client as a subscriber.
 			else if (request.equals("add client")){
+				System.out.println("yo yo");
 				SubscribedClient connection = new SubscribedClient(client);
 				SubscribersList.add(connection);
 				message.setMessage("client added successfully");
+				System.out.println("yo yo");
 				client.sendToClient(message);
+				Student r1=new Student("Rai",95);
+				System.out.println(r1.getName());
+				message.setMessage("yo yo");
+				System.out.println("yo yo");
+				client.sendToClient(message);
+				sendToAllClients(message);
+
 			}
 			//we got a message from client requesting to echo Hello, so we will send back to client Hello world!
-			else if(request.startsWith("echo Hello")){
-				message.setMessage("Hello World!");
+			else if(request.startsWith("add student")){
+				Student r1=new Student(message.getData(),95);
+				System.out.println(r1.getName());
+				message.setMessage("yo yo");
+				System.out.println("yo yo");
 				client.sendToClient(message);
+				sendToAllClients(message);
 			}
 			else if(request.startsWith("send Submitters IDs")){
 				//add code here to send submitters IDs to client
+				message.setMessage("315811455, 319151536");
+				client.sendToClient(message);
 			}
+
 			else if (request.startsWith("send Submitters")){
-				//add code here to send submitters names to client
+				message.setMessage("Rai, Mohammed");
+				client.sendToClient(message);
+				sendToAllClients(message);
 			}
 			else if (request.equals("what’s the time?")) {
-				//add code here to send the time to client
+				message.setMessage("12:45:15");
+				client.sendToClient(message);
 			}
 			else if (request.startsWith("multiply")){
+				message.setMessage("12:45:15");
+				client.sendToClient(message);
 				//add code here to multiply 2 numbers received in the message and send result back to client
 				//(use substring method as shown above)
 				//message format: "multiply n*m"

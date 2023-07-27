@@ -16,6 +16,10 @@ public class SimpleClient extends AbstractClient {
 	@Override
 	protected void handleMessageFromServer(Object msg) {
 		Message message = (Message) msg;
+		if(message.getMessage().equals("yo yo")){
+			System.out.println("recieve yo yo from server");
+			EventBus.getDefault().post(new UpdateMessageEvent(message));
+		}
 		if(message.getMessage().equals("update submitters IDs")){
 			EventBus.getDefault().post(new UpdateMessageEvent(message));
 		}else if(message.getMessage().equals("client added successfully")){

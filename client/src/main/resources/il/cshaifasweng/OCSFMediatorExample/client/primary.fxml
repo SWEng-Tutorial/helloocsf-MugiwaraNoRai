@@ -1,45 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="338.0" prefWidth="438.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="il.cshaifasweng.OCSFMediatorExample.client.PrimaryController">
    <children>
-      <GridPane>
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="103.4000244140625" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.2000244140625" minWidth="10.0" prefWidth="202.3999755859375" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.20001220703125" minWidth="10.0" prefWidth="79.39996337890625" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <TextField fx:id="timeTF" maxWidth="89.0" prefHeight="26.0" prefWidth="89.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="submitterID2" maxWidth="100.0" prefHeight="26.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="submitterID1" maxWidth="100.0" GridPane.rowIndex="1" />
-            <Label text="Submitters IDs:" />
-            <Label text="Time:" GridPane.columnIndex="2" />
-         </children>
-      </GridPane>
-      <Label prefHeight="37.0" prefWidth="116.0" text="Welcome">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-      <TextField fx:id="MessageTF" promptText="Enter message" />
-      <Button fx:id="SendBtn" mnemonicParsing="false" onAction="#sendMessage" text="Send" />
-      <Label text="Data from server:" />
-      <TextField fx:id="DataFromServerTF" prefHeight="66.0" prefWidth="398.0" />
+      <ListView fx:id="namesList" prefHeight="400.0" prefWidth="167.0" />
+      <Button fx:id="showGrade" layoutX="289.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#showTheGrade" text="Show Grade" />
+      <Button fx:id="gradeChange" layoutX="397.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#changeTheGrade" text="Change Grade" />
+      <Text fx:id="gradeShow" layoutX="204.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name : Grade" wrappingWidth="85.0" />
+      <TextField fx:id="newGrade" layoutX="339.0" layoutY="216.0" onAction="#newGradeField" prefHeight="25.0" prefWidth="104.0" text="Enter new grade" />
    </children>
-   <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-   </padding>
-</VBox>
+</AnchorPane>
